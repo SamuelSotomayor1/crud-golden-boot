@@ -1,12 +1,15 @@
 "use client";
 
 import {useState} from "react";
+import {useRouter} from "next/navigation";
 
 export default function AddPlayer() {
 
     const [player, setPlayer] = useState("");
     const [goals, setGoals] = useState("");
     const [matchs, setMatchs] = useState("");
+
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -17,7 +20,18 @@ export default function AddPlayer() {
         }
         
         try {
-            console.log("Success");
+            const res = await fetch("http://localhost:3000/api/players", {
+                method : "POST",
+                headers: {
+                    "Content-Type" : "application/json",
+                },
+                body: JSON.stringify({player, goals, matchs}),
+            });
+            if(res.ok){
+                router.push("/players");
+            } else {
+                throw new Error("Failed to agregate a player")
+            }
         } catch (error) {
             console.log(error);
         }
