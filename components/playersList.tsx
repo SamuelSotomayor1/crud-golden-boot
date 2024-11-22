@@ -1,4 +1,6 @@
 import Link from "next/link";
+import RemoveBtn from "./RemoveBtn";
+
 
 interface Player {
     _id: string;
@@ -93,9 +95,7 @@ export default async function PlayersList() {
                         </Link>
                       </td>
                       <td className="px-6 py-4 text-right">
-                        <button className="bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded">
-                          Delete
-                        </button>
+                        <RemoveBtn id={playerData._id}/>
                       </td>
                     </tr>
                   );

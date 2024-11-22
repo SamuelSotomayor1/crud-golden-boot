@@ -14,3 +14,10 @@ export async function POST(request){
     await Player.create({ player, goals, matchs});
     return NextResponse.json({message: "Player agregated"}, {status: 201});
 }
+
+export async function DELETE(request){
+    const id = request.nextUrl.searchParams.get("id");
+    await connectMongoDB();
+    await Player.findByIdAndDelete(id);
+    return NextResponse.json({message: "Player deleted"}, {status:200});
+}
