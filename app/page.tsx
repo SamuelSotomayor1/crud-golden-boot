@@ -1,5 +1,4 @@
-import PlayersList from "@/components/playersList";
-
+import PlayersList from "@/components/PlayersList";
 
 export default function Home() {
   return (

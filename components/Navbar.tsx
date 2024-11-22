@@ -5,7 +5,7 @@ export default function Navbar() {
     <div className="w-full">
         <nav className="flex w-full h-28 pt-0 text-white bg-slate-900 shadow-md lg:px-8 lg:py-3">
             <div className="flex w-full items-center justify-center text-gray-100">
-                <div className="mr-4 block cursor-pointer py-1.5 text-gray-200 font-bold text-2xl">
+                <div className="mr-4 block py-1.5 text-gray-200 font-bold text-2xl">
                     Bota de Oro 2024/25
                 </div>
                 <a href="https://github.com/SamuelSotomayor1" target="_blank" 
