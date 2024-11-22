@@ -28,7 +28,7 @@ export default function AddPlayer() {
                 body: JSON.stringify({player, goals, matchs}),
             });
             if(res.ok){
-                router.push("/players");
+                router.push("/");
             } else {
                 throw new Error("Failed to agregate a player")
             }
