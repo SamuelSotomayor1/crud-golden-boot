@@ -66,14 +66,26 @@ export default async function PlayersList() {
                 <th scope="col" className="px-6 py-3">
                   <span className="sr-only">Edit</span>
                 </th>
+                <th scope="col" className="px-6 py-3">
+                  <span className="sr-only">Delete</span>
+                </th>
               </tr>
             </thead>
             <tbody>
               {/* Utilizamos un ciclo for para iterar sobre los jugadores */}
               {(() => {
                 const rows = [];
-                for (let i = 0; i < players.length; i++) {
-                  const playerData = players[i];
+
+                const sortedPlayers = [...players];
+                sortedPlayers.sort((a, b) => {
+                    if (b.goals === a.goals) {
+                      return a.matchs - b.matchs;
+                    }
+                    return b.goals - a.goals;
+                });
+
+                for (let i = 0; i < sortedPlayers.length; i++) {
+                  const playerData = sortedPlayers[i];
                   rows.push(
                     <tr
                       key={playerData._id}

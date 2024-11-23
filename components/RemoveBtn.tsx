@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 interface RemoveBtnProps {
-    id: string | number; // Asegúrate de que el tipo coincide con el tipo de 'id'
+    id: string | number;
   }
 
 export default function RemoveBtn({id}: RemoveBtnProps) {
